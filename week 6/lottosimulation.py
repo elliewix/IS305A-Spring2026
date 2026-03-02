@@ -44,7 +44,7 @@ def run_lifetime(seed_num):
 
 
 print(run_lifetime(34525))
-# try_a_bunch = [run_lifetime(i) for i in range(50000)]
-# print("of 50,000 people trying for 30 years...")
-# print(sum([bank > 0 for bank in try_a_bunch if bank != "jackpot"]), "made profit")
-# print("jackpots:", try_a_bunch.count("jackpot"))
+try_a_bunch = [run_lifetime(i) for i in range(50000)]
+print("of 50,000 people trying for 30 years...")
+print(sum([bank > 0 for bank in try_a_bunch if bank != "jackpot"]), "made profit")
+print("jackpots:", try_a_bunch.count("jackpot"))
