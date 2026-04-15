@@ -1,29 +1,22 @@
-count = 1
-for _ in range(27):
-    if count == 3:
-        print(count, "collect")
-        count = 0
-    else:
-        print(count, "no")
-    count += 1
-all_groups = []
-scratch = []
-count = 1
-for i in range(27):
-    scratch.append(i)
-    if count == 3:
-        all_groups.append(scratch)
-        scratch = []
-        count = 0
-    count += 1
+import json
+import requests
 
-print(all_groups)
+r = requests.get('https://api.github.com/users/hadley/orgs')
 
-all_groups = []
-scratch = []
-for i in range(27):
-    scratch.append(i)
-    if (i + 1) % 3 == 0:
-        all_groups.append(scratch)
-        scratch = []
-print(all_groups)
+# print(r.content)
+with open('mydata.json', 'wt') as outfile:
+    parsed = json.loads(r.text)
+    print(parsed)
+    json.dump(parsed, outfile, indent = 4)
+    # outfile.write(r.json())
+
+r.close()
+
+years = ['2015', '2019', '2022']
+for y in years:
+    url = "https://whatever.com/" + y
+    print(url)
+    # requests stuff
+    # write json file
+    # close response
+    # time sleep
