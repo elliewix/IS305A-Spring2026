@@ -38,3 +38,8 @@ print(titletypes)
 names = tree.xpath('//tei:persName[@type = "standard"]/text()', namespaces = ns)
 print(names)
 
+names = tree.xpath('//tei:person', namespaces = ns)
+
+for p in names:
+    print(p.xpath('@xml:id', namespaces = ns))
+    print(p.xpath('.//tei:socecStatus/text()', namespaces= ns))
